@@ -11,6 +11,9 @@
 		E82E60422A5D5A7C00595D08 /* LoremIpsumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E60412A5D5A7C00595D08 /* LoremIpsumModel.swift */; };
 		E8B26CC12A5AFEDD0012004F /* ColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B26CC02A5AFEDD0012004F /* ColorWheelView.swift */; };
 		E8B26CC42A5AFF700012004F /* AboutDevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B26CC32A5AFF700012004F /* AboutDevToolsView.swift */; };
+		E8B9FE4D2A5DA0150007E8FC /* LIWordOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9FE4C2A5DA0150007E8FC /* LIWordOptions.swift */; };
+		E8B9FE4F2A5DA03D0007E8FC /* LISentenceOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9FE4E2A5DA03D0007E8FC /* LISentenceOptions.swift */; };
+		E8B9FE512A5DA06A0007E8FC /* LIParagraphOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9FE502A5DA06A0007E8FC /* LIParagraphOptions.swift */; };
 		E8EADC532A5AB38D004DE53E /* DevHelpersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EADC522A5AB38D004DE53E /* DevHelpersApp.swift */; };
 		E8EADC572A5AB38E004DE53E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8EADC562A5AB38E004DE53E /* Assets.xcassets */; };
 		E8EADC5A2A5AB38E004DE53E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8EADC592A5AB38E004DE53E /* Preview Assets.xcassets */; };
@@ -22,6 +25,9 @@
 		E82E60412A5D5A7C00595D08 /* LoremIpsumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremIpsumModel.swift; sourceTree = "<group>"; };
 		E8B26CC02A5AFEDD0012004F /* ColorWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheelView.swift; sourceTree = "<group>"; };
 		E8B26CC32A5AFF700012004F /* AboutDevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevToolsView.swift; sourceTree = "<group>"; };
+		E8B9FE4C2A5DA0150007E8FC /* LIWordOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIWordOptions.swift; sourceTree = "<group>"; };
+		E8B9FE4E2A5DA03D0007E8FC /* LISentenceOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LISentenceOptions.swift; sourceTree = "<group>"; };
+		E8B9FE502A5DA06A0007E8FC /* LIParagraphOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIParagraphOptions.swift; sourceTree = "<group>"; };
 		E8EADC4F2A5AB38D004DE53E /* DevHelpers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevHelpers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8EADC522A5AB38D004DE53E /* DevHelpersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevHelpersApp.swift; sourceTree = "<group>"; };
 		E8EADC562A5AB38E004DE53E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,6 +123,9 @@
 				E8EADC612A5AB544004DE53E /* LoremIpsumView.swift */,
 				E8006B5A2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift */,
 				E82E60412A5D5A7C00595D08 /* LoremIpsumModel.swift */,
+				E8B9FE4C2A5DA0150007E8FC /* LIWordOptions.swift */,
+				E8B9FE4E2A5DA03D0007E8FC /* LISentenceOptions.swift */,
+				E8B9FE502A5DA06A0007E8FC /* LIParagraphOptions.swift */,
 			);
 			path = LoremIpsum;
 			sourceTree = "<group>";
@@ -191,11 +200,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8B9FE4F2A5DA03D0007E8FC /* LISentenceOptions.swift in Sources */,
+				E8B9FE512A5DA06A0007E8FC /* LIParagraphOptions.swift in Sources */,
 				E8B26CC42A5AFF700012004F /* AboutDevToolsView.swift in Sources */,
 				E8B26CC12A5AFEDD0012004F /* ColorWheelView.swift in Sources */,
 				E8EADC532A5AB38D004DE53E /* DevHelpersApp.swift in Sources */,
 				E8006B5B2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift in Sources */,
 				E82E60422A5D5A7C00595D08 /* LoremIpsumModel.swift in Sources */,
+				E8B9FE4D2A5DA0150007E8FC /* LIWordOptions.swift in Sources */,
 				E8EADC622A5AB544004DE53E /* LoremIpsumView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

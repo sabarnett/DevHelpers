@@ -6,14 +6,22 @@
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
+import AppKit
 
 class LoremIpsumModel: ObservableObject {
     
+    // MARK: - App settings
+    @AppStorage("li_classicFirstLine") var classicFirstLine: Bool = true
+    @AppStorage("li_addQuotes") var addQuotes: Bool = true
+    @AppStorage("li_doubleSpace") var doubleSpace: Bool = true
+
     // MARK: - public, observable properties
     
     // What do we want to generate?
     @Published var generateWhat: LoremIpsumOutput = .word
+    
+    // Options
     
     // Word generation options
     @Published var wordCount: Int = 5
@@ -32,7 +40,9 @@ class LoremIpsumModel: ObservableObject {
     @Published var generatedText: String = ""
     
     // MARK: - private variables
-    
+    private var separator: String {
+        return doubleSpace ? "\n\n" : "\n"
+    }
     
     // MARK: - public API - generation functions
     public func generate() {
@@ -46,42 +56,59 @@ class LoremIpsumModel: ObservableObject {
         }
     }
     
+    public func copyToClipboard() {
+        let pasteboard = NSPasteboard.general
+        
+        pasteboard.declareTypes([.string], owner: nil)
+        pasteboard.setString(generatedText, forType: .string)
+    }
+    
     // MARK: - Private helper functions
     func generateWords() {
         let generator = LoremIpsumGenerator()
         if wordCount == 1 {
-            generatedText = generator.word()
+            generatedText = quotedString(generator.word())
             return
         }
-        generatedText = generator.words(wordCount).joined(separator: "\n")
+        generatedText = quotedArray(generator.words(wordCount)).joined(separator: separator)
     }
     
     func generateSentences() {
         let generator = LoremIpsumGenerator()
         if sentenceCount == 1 {
-            generatedText = generator.sentence(minWords: sentenceMinWords, maxWords: sentenceMaxWords)
+            generatedText = quotedString(generator.sentence(minWords: sentenceMinWords, maxWords: sentenceMaxWords))
             return
         }
-        generatedText = try! generator.sentences(count: sentenceCount,
+        generatedText = quotedArray(try! generator.sentences(count: sentenceCount,
                                             minWords: sentenceMinWords,
-                                            maxWords: sentenceMaxWords)
-                                        .joined(separator: "\n")
+                                            maxWords: sentenceMaxWords))
+                                        .joined(separator: separator)
     }
     
     func generateParagraphs() {
         let generator = LoremIpsumGenerator()
         if paragraphCount == 1 {
-            generatedText = try! generator.paragraph(sentenceCount: sentenceCount,
+            generatedText = quotedString(try! generator.paragraph(sentenceCount: sentenceCount,
                                                 minWordsInSentence: sentenceMinWords,
-                                                maxWordsInSentence: sentenceMaxWords)
+                                                maxWordsInSentence: sentenceMaxWords))
             return
         }
         
-        generatedText = try! generator.paragraphs(paragraphCount,
+        generatedText = quotedArray(try! generator.paragraphs(paragraphCount,
                                              minSentenceCount: paragraphMinSentenceCount,
                                              maxSentenceCount: paragraphMaxSentenceCount,
                                              minWordsInSentence: sentenceMinWords,
-                                             maxWordsInSentence: sentenceMaxWords)
-        .joined(separator: "\n")
+                                             maxWordsInSentence: sentenceMaxWords))
+        .joined(separator: separator)
+    }
+    
+    func quotedString(_ str: String) -> String {
+        if !addQuotes { return str }
+        return "\"\(str)\""
+    }
+    
+    func quotedArray(_ strArray: [String]) -> [String] {
+        if !addQuotes { return strArray }
+        return strArray.map { quotedString($0) }
     }
 }
