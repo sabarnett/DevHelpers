@@ -94,11 +94,14 @@ class LoremIpsumGenerator {
     ///   and the number must be smaller than the maximum number of words.
     ///   - maxWords: The maximum number of words in a sentence. This defaults to 20. If specified, you must provide a value between
     ///   5 and 50 and the number must be larger than the minimum word count.
+    ///   - classicFirstLine: If set, the first line will be the classic "Lorem ipsum..." text
     ///
     /// - Returns: An string representing the generated sentence. A sentence will have an
     /// initial capital letter, a trailing full stop and may contain one or more commas.
-    public func sentence(minWords: Int = 5, maxWords: Int = 20) -> String {
-        try! sentences(count: 1, minWords: minWords, maxWords: maxWords).first ?? ""
+    public func sentence(minWords: Int = 5,
+                         maxWords: Int = 20,
+                         classicFirstLine: Bool = false) -> String {
+        try! sentences(count: 1, minWords: minWords, maxWords: maxWords, classicFirstLine: classicFirstLine).first ?? ""
     }
     
     /// Returns an array of sentences.
@@ -109,10 +112,14 @@ class LoremIpsumGenerator {
     ///   and the number must be smaller than the maximum number of words.
     ///   - maxWords: The maximum number of words in a sentence. This defaults to 20. If specified, you must provide a value between
     ///   5 and 50 and the number must be larger than the minimum word count.
+    ///   - classicFirstLine: If set, the first line will be the classic "Lorem ipsum..." text
     ///
     /// - Returns: An array of strings representing the sentences generated. A sentence will have an
     /// initial capital letter, a trailing full stop and may contain one or more commas.
-    public func sentences(count: Int = 3, minWords: Int = 5, maxWords: Int = 20) throws -> [String] {
+    public func sentences(count: Int = 3,
+                          minWords: Int = 5,
+                          maxWords: Int = 20,
+                          classicFirstLine: Bool = false) throws -> [String] {
         var sentenceList: [String] = []
         
         guard count >= 1, count <= 15 else {
@@ -129,7 +136,13 @@ class LoremIpsumGenerator {
             let words = words(Int.random(in: minWords..<maxWords)).joined(separator: wordSeparator)
             sentenceList.append(punctuate(words))
         }
-        
+
+        if classicFirstLine {
+            // Generate the first line from the classic strings and replace the first item.
+            let words = words[0...7].joined(separator: wordSeparator)
+            sentenceList[0] = words
+        }
+
         return sentenceList
     }
     
@@ -144,16 +157,22 @@ class LoremIpsumGenerator {
     ///   and the number must be smaller than the maximum number of words.
     ///   - maxWordsInSentence: The maximum number of words in a sentence. This defaults to 20. If specified, you must provide a value between
     ///   5 and 50 and the number must be larger than the minimum word count.
+    ///   - classicFirstLine: If set, the first line will be the classic "Lorem ipsum..." text
     ///
     /// - Returns: A string that consists of the requested number of sentences. Sentences will be separated by two spaces. Each sentence
     /// will have between 5 and 20 words. You can override this.
-    public func paragraph(sentenceCount: Int = 3, minWordsInSentence: Int = 5, maxWordsInSentence: Int = 20) throws -> String {
+    public func paragraph(sentenceCount: Int = 3,
+                          minWordsInSentence: Int = 5,
+                          maxWordsInSentence: Int = 20,
+                          classicFirstLine: Bool = false) throws -> String {
         
         guard sentenceCount >= 2, sentenceCount <= 10 else {
             throw LoremIpsumError.InvalidSentenceCount("Sentence count must be between 1 and 15")
         }
         
-        let sentences = try sentences(count: sentenceCount, minWords: minWordsInSentence, maxWords: maxWordsInSentence)
+        let sentences = try sentences(count: sentenceCount,
+                                      minWords: minWordsInSentence, maxWords: maxWordsInSentence,
+                                      classicFirstLine: classicFirstLine)
         return sentences.joined(separator: sentenceSeparator)
     }
     
@@ -167,11 +186,13 @@ class LoremIpsumGenerator {
     ///   in the range 3 to 15. It must be more than the minimum sentence count.
     ///   - minWordsInSentence: The minimum number of words in a sentence. This defaults to 5.
     ///   - maxWordsInSentence: The maximum number of words in a sentence. This defaults to 20.
+    ///   - classicFirstLine: If set, the first line will be the classic "Lorem ipsum..." text
     ///
     /// - Returns: An array of paragraphs.
     public func paragraphs(_ count: Int = 3,
                            minSentenceCount: Int = 3, maxSentenceCount: Int = 6,
-                           minWordsInSentence: Int = 5, maxWordsInSentence: Int = 20) throws -> [String] {
+                           minWordsInSentence: Int = 5, maxWordsInSentence: Int = 20,
+                           classicFirstLine: Bool = false) throws -> [String] {
         var paragraphs: [String] = []
         
         guard count >= 1, count <= 15 else {
@@ -184,10 +205,13 @@ class LoremIpsumGenerator {
             throw LoremIpsumError.InvalidParagraphSentenceCount("The maximum sentence count must be between 3 and 15 and must be greater than the minimum count")
         }
         
+        var classicFirst = classicFirstLine
         for _ in 0..<count {
             paragraphs.append(try paragraph(sentenceCount: Int.random(in: minSentenceCount..<maxSentenceCount),
                                             minWordsInSentence: minWordsInSentence,
-                                            maxWordsInSentence: maxWordsInSentence))
+                                            maxWordsInSentence: maxWordsInSentence,
+                                           classicFirstLine: classicFirst))
+            classicFirst = false
         }
         
         return paragraphs

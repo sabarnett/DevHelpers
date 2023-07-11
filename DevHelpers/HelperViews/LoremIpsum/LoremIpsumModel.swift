@@ -76,12 +76,13 @@ class LoremIpsumModel: ObservableObject {
     func generateSentences() {
         let generator = LoremIpsumGenerator()
         if sentenceCount == 1 {
-            generatedText = quotedString(generator.sentence(minWords: sentenceMinWords, maxWords: sentenceMaxWords))
+            generatedText = quotedString(generator.sentence(minWords: sentenceMinWords, maxWords: sentenceMaxWords, classicFirstLine: classicFirstLine))
             return
         }
         generatedText = quotedArray(try! generator.sentences(count: sentenceCount,
                                             minWords: sentenceMinWords,
-                                            maxWords: sentenceMaxWords))
+                                            maxWords: sentenceMaxWords,
+                                            classicFirstLine: classicFirstLine))
                                         .joined(separator: separator)
     }
     
@@ -90,7 +91,8 @@ class LoremIpsumModel: ObservableObject {
         if paragraphCount == 1 {
             generatedText = quotedString(try! generator.paragraph(sentenceCount: sentenceCount,
                                                 minWordsInSentence: sentenceMinWords,
-                                                maxWordsInSentence: sentenceMaxWords))
+                                                maxWordsInSentence: sentenceMaxWords,
+                                                classicFirstLine: classicFirstLine))
             return
         }
         
@@ -98,7 +100,8 @@ class LoremIpsumModel: ObservableObject {
                                              minSentenceCount: paragraphMinSentenceCount,
                                              maxSentenceCount: paragraphMaxSentenceCount,
                                              minWordsInSentence: sentenceMinWords,
-                                             maxWordsInSentence: sentenceMaxWords))
+                                             maxWordsInSentence: sentenceMaxWords,
+                                            classicFirstLine: classicFirstLine))
         .joined(separator: separator)
     }
     

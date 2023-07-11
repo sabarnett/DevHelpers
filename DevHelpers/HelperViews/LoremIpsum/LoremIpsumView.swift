@@ -36,6 +36,7 @@ struct LoremIpsumView: View {
                 
                 VStack(alignment: .leading) {
                     Toggle("Classic first line", isOn: $vm.classicFirstLine)
+                        .disabled(vm.generateWhat == .word)
                     Toggle("Add quotes", isOn: $vm.addQuotes)
                     Toggle("Double space", isOn: $vm.doubleSpace)
                 }
