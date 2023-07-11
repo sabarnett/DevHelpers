@@ -34,9 +34,9 @@ struct DevHelpersApp: App {
         
         Window("About", id: "about") {
             AboutDevToolsView()
-                .frame(minWidth: 300, maxWidth: 300, minHeight: 300, maxHeight: 300)
+                .frame(minWidth: 440, maxWidth: 440, minHeight: 200, maxHeight: 200)
                 .fixedSize()
-        }.defaultSize(width: 300, height: 300)
+        }.defaultSize(width: 440, height: 200)
             .defaultPosition(.center)
             .windowResizability(.contentSize)
     }
