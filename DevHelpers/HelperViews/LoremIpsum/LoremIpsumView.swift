@@ -5,14 +5,47 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 
 struct LoremIpsumView: View {
+    
+    @StateObject var vm: LoremIpsumModel = LoremIpsumModel()
+    
     var body: some View {
-        Text("Lorem Ipsum Test")
-        Button(action: { testIpsum() }, label: { Text("Test it")})
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
+                VStack {
+                    Picker(selection: $vm.generateWhat, label: Text("Generate what?:")) {
+                        Text("Word(s)").tag(LoremIpsumOutput.word)
+                        Text("Sentence(s)").tag(LoremIpsumOutput.sentence)
+                        Text("Paragraph(s)").tag(LoremIpsumOutput.paragraph)
+                    }.pickerStyle(RadioGroupPickerStyle())
+                }
+                VStack {
+                    switch vm.generateWhat {
+                    case .word:
+                        Picker("Word count", selection: $vm.wordCount, content: {
+                            ForEach(1..<20) { count in
+                                Text("\(count)").tag(count)
+                            }
+                        }).pickerStyle(.automatic)
+                    case .sentence:
+                        EmptyView()
+                    case .paragraph:
+                        EmptyView()
+                    }
+                }
+            }
+            
+            Button(action: {
+                vm.generate()
+            }, label: {
+                Text("Generate")
+            })
+            Spacer()
+            TextEditor(text: $vm.generatedText)
+        }.padding(20)
     }
     
     func testIpsum() {
@@ -58,5 +91,6 @@ struct LoremIpsumView: View {
 struct LoremIpsumView_Previews: PreviewProvider {
     static var previews: some View {
         LoremIpsumView()
+            .frame(width: 400, height: 350)
     }
 }

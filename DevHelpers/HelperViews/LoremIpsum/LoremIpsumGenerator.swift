@@ -16,6 +16,12 @@ enum LoremIpsumError: Error {
     case InvalidParagraphSentenceCount(String)
 }
 
+enum LoremIpsumOutput {
+    case word
+    case sentence
+    case paragraph
+}
+
 class LoremIpsumGenerator {
     
     public var wordSeparator: String = " "
@@ -83,16 +89,22 @@ class LoremIpsumGenerator {
     /// Returns a single sentence. The number of words in the sentence will be some
     /// random number between 5 and 20 words.
     ///
+    /// - Parameters:
+    ///   - minWords: The minimum number of words in a sentence. The default is 5 words. You must specify a value between 1 and 10
+    ///   and the number must be smaller than the maximum number of words.
+    ///   - maxWords: The maximum number of words in a sentence. This defaults to 20. If specified, you must provide a value between
+    ///   5 and 50 and the number must be larger than the minimum word count.
+    ///
     /// - Returns: An string representing the generated sentence. A sentence will have an
     /// initial capital letter, a trailing full stop and may contain one or more commas.
-    public func sentence() -> String {
-        try! sentences(count: 1).first ?? ""
+    public func sentence(minWords: Int = 5, maxWords: Int = 20) -> String {
+        try! sentences(count: 1, minWords: minWords, maxWords: maxWords).first ?? ""
     }
     
     /// Returns an array of sentences.
     ///
     /// - Parameters:
-    ///   - count: Specifies the number of sentences we want
+    ///   - count: Specifies the number of sentences we want. This can be a value between 1 and 15. It defaults to 3.
     ///   - minWords: The minimum number of words in a sentence. The default is 5 words. You must specify a value between 1 and 10
     ///   and the number must be smaller than the maximum number of words.
     ///   - maxWords: The maximum number of words in a sentence. This defaults to 20. If specified, you must provide a value between
@@ -100,11 +112,14 @@ class LoremIpsumGenerator {
     ///
     /// - Returns: An array of strings representing the sentences generated. A sentence will have an
     /// initial capital letter, a trailing full stop and may contain one or more commas.
-    public func sentences(count: Int, minWords: Int = 5, maxWords: Int = 20) throws -> [String] {
+    public func sentences(count: Int = 3, minWords: Int = 5, maxWords: Int = 20) throws -> [String] {
         var sentenceList: [String] = []
         
+        guard count >= 1, count <= 15 else {
+            throw LoremIpsumError.InvalidSentenceCount("Invalid sentence count. Count must nbe between 3 and 15.")
+        }
         guard minWords >= 1, minWords <= 10 else {
-            throw LoremIpsumError.InvalidMinimumWordCount("Value must be between 1 and 10")
+            throw LoremIpsumError.InvalidMinimumWordCount("Value must be between 1 and 10.")
         }
         guard maxWords >= 5, maxWords <= 50, maxWords > minWords else {
             throw LoremIpsumError.InvalidMaximumWordCount("Value mjust be between 5 and 50 and greater than the minumun.")
@@ -122,12 +137,22 @@ class LoremIpsumGenerator {
     
     /// Returns a paragraph consisting of a number of sentences separated by two spaces.
     ///
-    /// - Parameter sentenceCount: The number of sentences to include in the paragraph. You can specify a number between 2 and
+    /// - Parameters:
+    ///   - sentenceCount: The number of sentences to include in the paragraph. You can specify a number between 2 and
     /// 10. The default number of sentences will be 3.
+    ///   - minWordsInSentence: The minimum number of words in a sentence. The default is 5 words. You must specify a value between 1 and 10
+    ///   and the number must be smaller than the maximum number of words.
+    ///   - maxWordsInSentence: The maximum number of words in a sentence. This defaults to 20. If specified, you must provide a value between
+    ///   5 and 50 and the number must be larger than the minimum word count.
     ///
     /// - Returns: A string that consists of the requested number of sentences. Sentences will be separated by two spaces. Each sentence
     /// will have between 5 and 20 words. You can override this.
     public func paragraph(sentenceCount: Int = 3, minWordsInSentence: Int = 5, maxWordsInSentence: Int = 20) throws -> String {
+        
+        guard sentenceCount >= 2, sentenceCount <= 10 else {
+            throw LoremIpsumError.InvalidSentenceCount("Sentence count must be between 1 and 15")
+        }
+        
         let sentences = try sentences(count: sentenceCount, minWords: minWordsInSentence, maxWords: maxWordsInSentence)
         return sentences.joined(separator: sentenceSeparator)
     }
@@ -149,7 +174,7 @@ class LoremIpsumGenerator {
                            minWordsInSentence: Int = 5, maxWordsInSentence: Int = 20) throws -> [String] {
         var paragraphs: [String] = []
         
-        guard count <= 15, count >= 1 else {
+        guard count >= 1, count <= 15 else {
             throw LoremIpsumError.InvalidParagraphCount("Paragraph count must be between 1 and 15")
         }
         guard minSentenceCount >= 1, minSentenceCount <= 10 else {

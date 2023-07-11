@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E8006B5B2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8006B5A2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift */; };
+		E82E60422A5D5A7C00595D08 /* LoremIpsumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E60412A5D5A7C00595D08 /* LoremIpsumModel.swift */; };
 		E8B26CC12A5AFEDD0012004F /* ColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B26CC02A5AFEDD0012004F /* ColorWheelView.swift */; };
 		E8B26CC42A5AFF700012004F /* AboutDevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B26CC32A5AFF700012004F /* AboutDevToolsView.swift */; };
 		E8EADC532A5AB38D004DE53E /* DevHelpersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EADC522A5AB38D004DE53E /* DevHelpersApp.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		E8006B5A2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremIpsumGenerator.swift; sourceTree = "<group>"; };
+		E82E60412A5D5A7C00595D08 /* LoremIpsumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremIpsumModel.swift; sourceTree = "<group>"; };
 		E8B26CC02A5AFEDD0012004F /* ColorWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheelView.swift; sourceTree = "<group>"; };
 		E8B26CC32A5AFF700012004F /* AboutDevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevToolsView.swift; sourceTree = "<group>"; };
 		E8EADC4F2A5AB38D004DE53E /* DevHelpers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevHelpers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 			children = (
 				E8EADC612A5AB544004DE53E /* LoremIpsumView.swift */,
 				E8006B5A2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift */,
+				E82E60412A5D5A7C00595D08 /* LoremIpsumModel.swift */,
 			);
 			path = LoremIpsum;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				E8B26CC12A5AFEDD0012004F /* ColorWheelView.swift in Sources */,
 				E8EADC532A5AB38D004DE53E /* DevHelpersApp.swift in Sources */,
 				E8006B5B2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift in Sources */,
+				E82E60422A5D5A7C00595D08 /* LoremIpsumModel.swift in Sources */,
 				E8EADC622A5AB544004DE53E /* LoremIpsumView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
