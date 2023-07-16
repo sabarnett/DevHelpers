@@ -43,17 +43,8 @@ struct LoremIpsumView: View {
             }
             
             HStack {
-                Button(action: {
-                    vm.generate()
-                }, label: {
-                    Text("Generate")
-                })
-                
-                Button(action: {
-                    vm.copyToClipboard()
-                }, label: {
-                    Text("Copy to clipboard")
-                })
+                Button(action: { vm.generate() }, label: { Text("Generate") })
+                Button(action: { vm.copyToClipboard() }, label: { Text("Copy to clipboard") })
             }
             Spacer()
             TextEditor(text: $vm.generatedText)

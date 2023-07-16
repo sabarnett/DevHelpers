@@ -28,7 +28,7 @@ struct DevHelpersApp: App {
             .defaultPosition(.center)
         
         Window("ColorWheel", id: "colorwheel") {
-            ColorWheelView()
+            ColorSelectorView()
         }.defaultSize(width: 400, height: 200)
             .defaultPosition(.center)
         
