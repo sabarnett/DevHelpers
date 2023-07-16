@@ -10,8 +10,7 @@ import SwiftUI
 
 public struct QudiaColorWheel: View {
     
-    @Binding var selectedColor: NSColor
-    @ObservedObject var settings = QudiaColorWheelSettings.shared
+    @ObservedObject var settings: QudiaColorWheelSettings
 
     var dragGesture: some Gesture {
         DragGesture(minimumDistance: 0)
@@ -23,7 +22,6 @@ public struct QudiaColorWheel: View {
 
                 let colorForPoint = color(point: point)
                 settings.hsvColor = colorForPoint.with(brightness: settings.hsvColor.brightness)
-                selectedColor = settings.color
             }
     }
 

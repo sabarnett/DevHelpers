@@ -11,16 +11,15 @@ import SwiftUI
 
 struct ColorSelectorView: View {
     
-    @StateObject var colorWheelSettings = QudiaColorWheelSettings.shared
-    @State var selectedColor: NSColor = NSColor(.blue)
+    @StateObject var colorSettings = QudiaColorWheelSettings()
     
     var body: some View {
         VStack{
             HStack(alignment: .top) {
-                QudiaColorWheel(selectedColor: $selectedColor)
+                QudiaColorWheel(settings: colorSettings)
                     .frame(width: 300, height: 300)
                 
-                ColorPreview(color: $selectedColor)
+                ColorPreview(color: $colorSettings.hsvColor)
                     .padding(.top, 15)
             }.padding(12)
         }
@@ -36,7 +35,7 @@ struct ColorWheelView_Previews: PreviewProvider {
     @State static var selectedColor: NSColor = NSColor(.blue)
     
     static var previews: some View {
-        ColorSelectorView(selectedColor: selectedColor)
+        ColorSelectorView()
             .frame(width: 600, height: 300)
     }
 }

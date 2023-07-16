@@ -9,7 +9,6 @@
 import SwiftUI
 
 public class QudiaColorWheelSettings: ObservableObject {
-    public static let shared = QudiaColorWheelSettings()
 
     @Published var hsvColor = HSVColor(hue: 0.66, saturation: 1, brightness: 1)
 
