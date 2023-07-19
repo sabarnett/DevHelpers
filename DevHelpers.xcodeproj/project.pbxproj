@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		E8006B5B2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8006B5A2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift */; };
+		E822229E2A685D2B0036B42E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82222982A685D2B0036B42E /* UIColorExtension.swift */; };
+		E822229F2A685D2B0036B42E /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82222992A685D2B0036B42E /* ColorPickerView.swift */; };
+		E82222A02A685D2B0036B42E /* ColorSpaceConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822229A2A685D2B0036B42E /* ColorSpaceConverter.swift */; };
+		E82222A12A685D2B0036B42E /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822229B2A685D2B0036B42E /* RGB.swift */; };
+		E82222A22A685D2B0036B42E /* ColorPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822229C2A685D2B0036B42E /* ColorPickerViewDelegate.swift */; };
+		E82222A32A685D2B0036B42E /* HSB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E822229D2A685D2B0036B42E /* HSB.swift */; };
+		E82222A62A685D3A0036B42E /* ColorPickerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82222A42A685D3A0036B42E /* ColorPickerUI.swift */; };
+		E82222AA2A6863720036B42E /* WriteLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82222A92A6863720036B42E /* WriteLog.swift */; };
 		E82E60422A5D5A7C00595D08 /* LoremIpsumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E60412A5D5A7C00595D08 /* LoremIpsumModel.swift */; };
-		E8B26CC12A5AFEDD0012004F /* ColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B26CC02A5AFEDD0012004F /* ColorWheelView.swift */; };
+		E8B26CC12A5AFEDD0012004F /* ColorSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B26CC02A5AFEDD0012004F /* ColorSelectorView.swift */; };
 		E8B26CC42A5AFF700012004F /* AboutDevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B26CC32A5AFF700012004F /* AboutDevToolsView.swift */; };
 		E8B9FE4D2A5DA0150007E8FC /* LIWordOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9FE4C2A5DA0150007E8FC /* LIWordOptions.swift */; };
 		E8B9FE4F2A5DA03D0007E8FC /* LISentenceOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9FE4E2A5DA03D0007E8FC /* LISentenceOptions.swift */; };
 		E8B9FE512A5DA06A0007E8FC /* LIParagraphOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B9FE502A5DA06A0007E8FC /* LIParagraphOptions.swift */; };
-		E8D5CAB22A63D8E0007C6AD4 /* ColorPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5CAB12A63D8E0007C6AD4 /* ColorPreview.swift */; };
-		E8D5CAB42A63D915007C6AD4 /* HSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5CAB32A63D915007C6AD4 /* HSColor.swift */; };
-		E8D5CAB62A63D943007C6AD4 /* HSVColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5CAB52A63D943007C6AD4 /* HSVColor.swift */; };
-		E8D5CAB82A63D966007C6AD4 /* RGBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5CAB72A63D966007C6AD4 /* RGBColor.swift */; };
-		E8D5CABA2A63D994007C6AD4 /* QudiaColorWheelSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5CAB92A63D994007C6AD4 /* QudiaColorWheelSettings.swift */; };
-		E8D5CABC2A63D9C7007C6AD4 /* QudiaColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5CABB2A63D9C7007C6AD4 /* QudiaColorWheel.swift */; };
 		E8EADC532A5AB38D004DE53E /* DevHelpersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EADC522A5AB38D004DE53E /* DevHelpersApp.swift */; };
 		E8EADC572A5AB38E004DE53E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8EADC562A5AB38E004DE53E /* Assets.xcassets */; };
 		E8EADC5A2A5AB38E004DE53E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8EADC592A5AB38E004DE53E /* Preview Assets.xcassets */; };
@@ -28,18 +30,20 @@
 
 /* Begin PBXFileReference section */
 		E8006B5A2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremIpsumGenerator.swift; sourceTree = "<group>"; };
+		E82222982A685D2B0036B42E /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		E82222992A685D2B0036B42E /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		E822229A2A685D2B0036B42E /* ColorSpaceConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSpaceConverter.swift; sourceTree = "<group>"; };
+		E822229B2A685D2B0036B42E /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		E822229C2A685D2B0036B42E /* ColorPickerViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewDelegate.swift; sourceTree = "<group>"; };
+		E822229D2A685D2B0036B42E /* HSB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSB.swift; sourceTree = "<group>"; };
+		E82222A42A685D3A0036B42E /* ColorPickerUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerUI.swift; sourceTree = "<group>"; };
+		E82222A92A6863720036B42E /* WriteLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteLog.swift; sourceTree = "<group>"; };
 		E82E60412A5D5A7C00595D08 /* LoremIpsumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremIpsumModel.swift; sourceTree = "<group>"; };
-		E8B26CC02A5AFEDD0012004F /* ColorWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheelView.swift; sourceTree = "<group>"; };
+		E8B26CC02A5AFEDD0012004F /* ColorSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorView.swift; sourceTree = "<group>"; };
 		E8B26CC32A5AFF700012004F /* AboutDevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevToolsView.swift; sourceTree = "<group>"; };
 		E8B9FE4C2A5DA0150007E8FC /* LIWordOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIWordOptions.swift; sourceTree = "<group>"; };
 		E8B9FE4E2A5DA03D0007E8FC /* LISentenceOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LISentenceOptions.swift; sourceTree = "<group>"; };
 		E8B9FE502A5DA06A0007E8FC /* LIParagraphOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIParagraphOptions.swift; sourceTree = "<group>"; };
-		E8D5CAB12A63D8E0007C6AD4 /* ColorPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPreview.swift; sourceTree = "<group>"; };
-		E8D5CAB32A63D915007C6AD4 /* HSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSColor.swift; sourceTree = "<group>"; };
-		E8D5CAB52A63D943007C6AD4 /* HSVColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSVColor.swift; sourceTree = "<group>"; };
-		E8D5CAB72A63D966007C6AD4 /* RGBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColor.swift; sourceTree = "<group>"; };
-		E8D5CAB92A63D994007C6AD4 /* QudiaColorWheelSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QudiaColorWheelSettings.swift; sourceTree = "<group>"; };
-		E8D5CABB2A63D9C7007C6AD4 /* QudiaColorWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QudiaColorWheel.swift; sourceTree = "<group>"; };
 		E8EADC4F2A5AB38D004DE53E /* DevHelpers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevHelpers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8EADC522A5AB38D004DE53E /* DevHelpersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevHelpersApp.swift; sourceTree = "<group>"; };
 		E8EADC562A5AB38E004DE53E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,16 +63,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E82222972A685D2B0036B42E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E82222A42A685D3A0036B42E /* ColorPickerUI.swift */,
+				E82222982A685D2B0036B42E /* UIColorExtension.swift */,
+				E82222992A685D2B0036B42E /* ColorPickerView.swift */,
+				E822229A2A685D2B0036B42E /* ColorSpaceConverter.swift */,
+				E822229B2A685D2B0036B42E /* RGB.swift */,
+				E822229C2A685D2B0036B42E /* ColorPickerViewDelegate.swift */,
+				E822229D2A685D2B0036B42E /* HSB.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E82222A82A6863660036B42E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E82222A92A6863720036B42E /* WriteLog.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		E8B26CBF2A5AFECD0012004F /* ColorWheel */ = {
 			isa = PBXGroup;
 			children = (
-				E8B26CC02A5AFEDD0012004F /* ColorWheelView.swift */,
-				E8D5CAB12A63D8E0007C6AD4 /* ColorPreview.swift */,
-				E8D5CAB32A63D915007C6AD4 /* HSColor.swift */,
-				E8D5CAB52A63D943007C6AD4 /* HSVColor.swift */,
-				E8D5CAB72A63D966007C6AD4 /* RGBColor.swift */,
-				E8D5CAB92A63D994007C6AD4 /* QudiaColorWheelSettings.swift */,
-				E8D5CABB2A63D9C7007C6AD4 /* QudiaColorWheel.swift */,
+				E82222972A685D2B0036B42E /* Components */,
+				E8B26CC02A5AFEDD0012004F /* ColorSelectorView.swift */,
 			);
 			path = ColorWheel;
 			sourceTree = "<group>";
@@ -108,6 +129,7 @@
 		E8EADC512A5AB38D004DE53E /* DevHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				E82222A82A6863660036B42E /* Utilities */,
 				E8B26CC52A5B008E0012004F /* App */,
 				E8B26CC22A5AFF5E0012004F /* AdminViews */,
 				E8EADC632A5AB554004DE53E /* HelperViews */,
@@ -195,7 +217,6 @@
 			);
 			mainGroup = E8EADC462A5AB38D004DE53E;
 			packageReferences = (
-				E868420D2A62E435001EE6F6 /* XCRemoteSwiftPackageReference "SwiftUIColourPickerMaker" */,
 			);
 			productRefGroup = E8EADC502A5AB38D004DE53E /* Products */;
 			projectDirPath = "";
@@ -224,20 +245,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8B9FE4F2A5DA03D0007E8FC /* LISentenceOptions.swift in Sources */,
-				E8D5CAB42A63D915007C6AD4 /* HSColor.swift in Sources */,
 				E8B9FE512A5DA06A0007E8FC /* LIParagraphOptions.swift in Sources */,
 				E8B26CC42A5AFF700012004F /* AboutDevToolsView.swift in Sources */,
-				E8B26CC12A5AFEDD0012004F /* ColorWheelView.swift in Sources */,
-				E8D5CAB62A63D943007C6AD4 /* HSVColor.swift in Sources */,
-				E8D5CAB22A63D8E0007C6AD4 /* ColorPreview.swift in Sources */,
+				E8B26CC12A5AFEDD0012004F /* ColorSelectorView.swift in Sources */,
 				E8EADC532A5AB38D004DE53E /* DevHelpersApp.swift in Sources */,
-				E8D5CABC2A63D9C7007C6AD4 /* QudiaColorWheel.swift in Sources */,
+				E82222A22A685D2B0036B42E /* ColorPickerViewDelegate.swift in Sources */,
+				E82222A32A685D2B0036B42E /* HSB.swift in Sources */,
 				E8006B5B2A5BF5D5007DF3ED /* LoremIpsumGenerator.swift in Sources */,
 				E82E60422A5D5A7C00595D08 /* LoremIpsumModel.swift in Sources */,
+				E82222A62A685D3A0036B42E /* ColorPickerUI.swift in Sources */,
+				E82222A02A685D2B0036B42E /* ColorSpaceConverter.swift in Sources */,
+				E82222AA2A6863720036B42E /* WriteLog.swift in Sources */,
+				E822229F2A685D2B0036B42E /* ColorPickerView.swift in Sources */,
+				E822229E2A685D2B0036B42E /* UIColorExtension.swift in Sources */,
 				E8B9FE4D2A5DA0150007E8FC /* LIWordOptions.swift in Sources */,
-				E8D5CAB82A63D966007C6AD4 /* RGBColor.swift in Sources */,
+				E82222A12A685D2B0036B42E /* RGB.swift in Sources */,
 				E8EADC622A5AB544004DE53E /* LoremIpsumView.swift in Sources */,
-				E8D5CABA2A63D994007C6AD4 /* QudiaColorWheelSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,17 +458,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E868420D2A62E435001EE6F6 /* XCRemoteSwiftPackageReference "SwiftUIColourPickerMaker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sturdysturge/SwiftUIColourPickerMaker.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = E8EADC472A5AB38D004DE53E /* Project object */;
 }

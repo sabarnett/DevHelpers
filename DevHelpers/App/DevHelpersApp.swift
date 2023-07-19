@@ -29,7 +29,7 @@ struct DevHelpersApp: App {
         
         Window("ColorWheel", id: "colorwheel") {
             ColorSelectorView()
-        }.defaultSize(width: 400, height: 200)
+        }.defaultSize(width: 400, height: 700)
             .defaultPosition(.center)
         
         Window("About", id: "about") {
@@ -55,8 +55,11 @@ struct ToolsGroup: View {
         }
 
         Button("Color Wheel") {
+            WriteLog.warning("Color Wheel button pressed")
             openWindow(id: "colorwheel")
+            WriteLog.warning("Color Wheel open window")
             NSApp.activate(ignoringOtherApps: true)
+            WriteLog.warning("Color Wheel to front")
         }
     }
   }
