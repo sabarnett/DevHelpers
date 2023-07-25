@@ -6,8 +6,10 @@ struct SettingsScreen: View {
 		TabView {
 			GeneralSettings()
 				.settingsTabItem(.general)
-			ColorSettings()
-				.settingsTabItem("Color", systemImage: "drop.fill")
+            LoremIpsumSettings()
+                .settingsTabItem("Lorem", systemImage: "drop.fill")
+            ColorSettings()
+                .settingsTabItem("Color", systemImage: "drop.fill")
 			AdvancedSettings()
 				.settingsTabItem(.advanced)
 		}
@@ -28,8 +30,6 @@ private struct GeneralSettings: View {
                 
 				Defaults.Toggle("Stay on top", key: .stayOnTop)
 					.help("Make the color picker window stay on top of all other windows.")
-                
-				Defaults.Toggle("Copy color in preferred format after picking", key: .copyColorAfterPicking)
 			}
 		}
 	}
@@ -43,6 +43,9 @@ private struct ColorSettings: View {
 				ShownColorFormatsSetting()
 			}
 			Section {
+                
+                Defaults.Toggle("Copy color in preferred format after picking", key: .copyColorAfterPicking)
+
 				Defaults.Toggle("Uppercase Hex color", key: .uppercaseHexColor)
 				Defaults.Toggle("Prefix Hex color with #", key: .hashPrefixInHexColor)
 				Defaults.Toggle("Use legacy syntax for HSL and RGB", key: .legacyColorSyntax)
@@ -52,15 +55,27 @@ private struct ColorSettings: View {
 	}
 }
 
+private struct LoremIpsumSettings: View {
+    var body: some View {
+        Form {
+            Defaults.Toggle("Classic first line", key: .useClassicFirstLine)
+            Defaults.Toggle("Add Quotes", key: .addQuotes)
+                .help("Adding quotes will make it easier to paste the text into code.")
+            Defaults.Toggle("Double Space", key: .doubleSpace)
+                .help("Adds a newline between each sentence or paragraph for readability.")
+        }
+    }
+}
+
 private struct AdvancedSettings: View {
-	var body: some View {
-		Form {
-			Defaults.Toggle("Show color sampler when opening window", key: .showColorSamplerOnOpen)
-				.help("Show the color picker loupe when the color picker window is shown.")
-			Defaults.Toggle("Use larger text in text fields", key: .largerText)
-			Defaults.Toggle("Show accessibility color name", key: .showAccessibilityColorName)
-		}
-	}
+    var body: some View {
+        Form {
+            Defaults.Toggle("Show color sampler when opening window", key: .showColorSamplerOnOpen)
+                .help("Show the color picker loupe when the color picker window is shown.")
+            Defaults.Toggle("Use larger text in text fields", key: .largerText)
+            Defaults.Toggle("Show accessibility color name", key: .showAccessibilityColorName)
+        }
+    }
 }
 
 private struct MenuBarItemClickActionSetting: View {

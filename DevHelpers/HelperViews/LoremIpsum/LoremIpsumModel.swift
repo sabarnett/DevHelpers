@@ -12,9 +12,9 @@ import AppKit
 class LoremIpsumModel: ObservableObject {
     
     // MARK: - App settings
-    @AppStorage("li_classicFirstLine") var classicFirstLine: Bool = true
-    @AppStorage("li_addQuotes") var addQuotes: Bool = true
-    @AppStorage("li_doubleSpace") var doubleSpace: Bool = true
+    @Default(.useClassicFirstLine) private var classicFirstLine
+    @Default(.addQuotes) private var addQuotes
+    @Default(.doubleSpace) private var doubleSpace
 
     // MARK: - public, observable properties
     

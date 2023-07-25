@@ -34,6 +34,13 @@ struct DevHelpersApp: App {
         }.defaultSize(width: 440, height: 200)
             .defaultPosition(.center)
             .windowResizability(.contentSize)
+        
+        Window("Settings", id: "settings") {
+            SettingsScreen()
+                .frame(minWidth: 440, maxWidth: 440)
+        }.defaultSize(width: 440, height: 200)
+            .defaultPosition(.center)
+            .windowResizability(.contentSize)
     }
 }
 
@@ -52,7 +59,6 @@ struct ToolsGroup: View {
         }
 
         Button("Color Wheel") {
-            WriteLog.warning("Color Wheel button pressed")
             self.appState.openColorPicker()
             NSApp.activate(ignoringOtherApps: true)
         }
@@ -68,6 +74,10 @@ struct AdminGroup: View {
     Group {
         Button("About DevTools") {
             openWindow(id: "about")
+            NSApp.activate(ignoringOtherApps: true)
+        }
+        Button("Settings") {
+            openWindow(id: "settings")
             NSApp.activate(ignoringOtherApps: true)
         }
 

@@ -11,7 +11,12 @@ import SwiftUI
 extension Defaults.Keys {
     static let recentlyPickedColors = Key<[NSColor]>("recentlyPickedColors", default: [])
 
-    // Settings
+    // Settings - Lorem Ipsum
+    static let useClassicFirstLine = Key<Bool>("li_useClassicFirstLine", default: false)
+    static let addQuotes = Key<Bool>("li_addQuotes", default: false)
+    static let doubleSpace = Key<Bool>("li_doubleSpace", default: false)
+
+    // Settings - Color Picker
     static let showColorSamplerOnOpen = Key<Bool>("showColorSamplerOnOpen", default: false)
     static let menuBarItemClickAction = Key<MenuBarItemClickAction>("menuBarItemClickAction", default: .showMenu)
     static let preferredColorFormat = Key<ColorFormat>("preferredColorFormat", default: .hex)

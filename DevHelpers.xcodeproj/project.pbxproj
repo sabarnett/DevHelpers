@@ -93,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				E860D2FC2A7018170025C88F /* String+Extension.swift */,
-				E860D2F32A7018170025C88F /* Defaults+Extension.swift */,
 				E860D2ED2A7018170025C88F /* NSColor+Extension.swift */,
 				E860D2F52A7018170025C88F /* NSPasteBoard+Extension.swift */,
 				E860D2FD2A7018170025C88F /* NSView+Extension.swift */,
@@ -131,12 +130,12 @@
 			path = "Color Screen";
 			sourceTree = "<group>";
 		};
-		E860D3142A7018F20025C88F /* SettngsScreen */ = {
+		E860D31B2A701C2D0025C88F /* SharedItems */ = {
 			isa = PBXGroup;
 			children = (
-				E860D2FA2A7018170025C88F /* SettingsScreen.swift */,
+				E860D2F32A7018170025C88F /* Defaults+Extension.swift */,
 			);
-			path = SettngsScreen;
+			path = SharedItems;
 			sourceTree = "<group>";
 		};
 		E8B26CBF2A5AFECD0012004F /* ColorWheel */ = {
@@ -146,7 +145,6 @@
 				E860D3102A70184C0025C88F /* Extensions */,
 				E860D3112A70188D0025C88F /* Components */,
 				E860D3132A7018E40025C88F /* Color Screen */,
-				E860D3142A7018F20025C88F /* SettngsScreen */,
 			);
 			path = ColorWheel;
 			sourceTree = "<group>";
@@ -155,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				E8B26CC32A5AFF700012004F /* AboutDevToolsView.swift */,
+				E860D2FA2A7018170025C88F /* SettingsScreen.swift */,
 			);
 			path = AdminViews;
 			sourceTree = "<group>";
@@ -186,6 +185,7 @@
 		E8EADC512A5AB38D004DE53E /* DevHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				E860D31B2A701C2D0025C88F /* SharedItems */,
 				E82222A82A6863660036B42E /* Utilities */,
 				E8B26CC52A5B008E0012004F /* App */,
 				E8B26CC22A5AFF5E0012004F /* AdminViews */,
