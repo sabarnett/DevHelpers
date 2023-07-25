@@ -14,6 +14,10 @@ struct LoremIpsumView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            HostingWindowFinder { window in
+                window?.standardWindowButton(.zoomButton)?.isHidden = true
+                window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
+            }.frame(height: 0)
             HStack(alignment: .top, spacing: 30) {
                 VStack(alignment: .leading) {
                     Text("Generate what?")

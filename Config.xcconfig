@@ -1,0 +1,14 @@
+//
+// File: Config.xcconfig
+// Package: DevHelpers
+// Created by: Steven Barnett on 25/07/2023
+// 
+// Copyright © 2023 Steven Barnett. All rights reserved.
+//
+        
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+MARKETING_VERSION = 1.1.0
+CURRENT_PROJECT_VERSION = 01

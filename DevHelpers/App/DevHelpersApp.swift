@@ -24,9 +24,10 @@ struct DevHelpersApp: App {
         
         Window("LoremIpsum", id: "loremipsum") {
             LoremIpsumView()
-        }.defaultSize(width: 500, height: 630)
+        }
+        .defaultSize(width: 500, height: 630)
             .defaultPosition(.center)
-        
+
         Window("About", id: "about") {
             AboutDevToolsView()
                 .frame(minWidth: 440, maxWidth: 440, minHeight: 200, maxHeight: 200)

@@ -1,5 +1,4 @@
 import SwiftUI
-import LaunchAtLogin
 
 @MainActor
 final class ColorWindowState: ObservableObject {
