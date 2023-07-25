@@ -27,11 +27,6 @@ struct DevHelpersApp: App {
         }.defaultSize(width: 500, height: 630)
             .defaultPosition(.center)
         
-        Window("ColorWheel", id: "colorwheel") {
-            ColorSelectorView()
-        }.defaultSize(width: 400, height: 700)
-            .defaultPosition(.center)
-        
         Window("About", id: "about") {
             AboutDevToolsView()
                 .frame(minWidth: 440, maxWidth: 440, minHeight: 200, maxHeight: 200)
@@ -45,6 +40,8 @@ struct DevHelpersApp: App {
 struct ToolsGroup: View {
   
   @Environment(\.openWindow) private var openWindow
+    @StateObject private var appState: ColorWindowState = ColorWindowState.shared
+
 
   var body: some View {
     Group {
@@ -56,10 +53,8 @@ struct ToolsGroup: View {
 
         Button("Color Wheel") {
             WriteLog.warning("Color Wheel button pressed")
-            openWindow(id: "colorwheel")
-            WriteLog.warning("Color Wheel open window")
+            self.appState.openColorPicker()
             NSApp.activate(ignoringOtherApps: true)
-            WriteLog.warning("Color Wheel to front")
         }
     }
   }
