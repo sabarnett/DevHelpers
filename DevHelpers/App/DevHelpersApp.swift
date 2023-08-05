@@ -25,21 +25,22 @@ struct DevHelpersApp: App {
         Window("LoremIpsum", id: "loremipsum") {
             LoremIpsumView()
         }
-        .defaultSize(width: 500, height: 630)
+        .defaultSize(width: Constants.loremIpsumWindowSize.width, height: Constants.loremIpsumWindowSize.height)
             .defaultPosition(.center)
 
         Window("About", id: "about") {
             AboutDevToolsView()
-                .frame(minWidth: 440, maxWidth: 440, minHeight: 200, maxHeight: 200)
+                .frame(minWidth: Constants.aboutWindowSize.width, maxWidth: Constants.aboutWindowSize.width + 200,
+                       minHeight: Constants.aboutWindowSize.height, maxHeight: Constants.aboutWindowSize.height)
                 .fixedSize()
-        }.defaultSize(width: 440, height: 200)
+        }.defaultSize(width: Constants.aboutWindowSize.width, height: Constants.aboutWindowSize.height)
             .defaultPosition(.center)
             .windowResizability(.contentSize)
         
         Window("Settings", id: "settings") {
             SettingsScreen()
-                .frame(minWidth: 440, maxWidth: 440)
-        }.defaultSize(width: 440, height: 200)
+                .frame(minWidth: Constants.settingsWindowSize.width)
+        }.defaultSize(width: Constants.settingsWindowSize.width, height: Constants.settingsWindowSize.height)
             .defaultPosition(.center)
             .windowResizability(.contentSize)
     }
@@ -63,8 +64,32 @@ struct ToolsGroup: View {
             self.appState.openColorPicker()
             NSApp.activate(ignoringOtherApps: true)
         }
+
+        Button("Image Generator") {
+            openImageGenerator()
+            NSApp.activate(ignoringOtherApps: true)
+        }
     }
   }
+    
+    func openImageGenerator() {
+        let windowRef:NSWindow = NSWindow(
+            contentRect: NSRect(x: 50,
+                                y: 50,
+                                width: Constants.imageGenWindowSize.width,
+                                height: Constants.imageGenWindowSize.height),
+            styleMask: [.titled,
+                .closable,
+                .miniaturizable,
+                .fullSizeContentView],        // .resizable
+            backing: .buffered,
+            defer: false)
+        
+        windowRef.contentView = NSHostingView(rootView: ImageGenerator(myWindow: windowRef))
+        windowRef.center()
+        windowRef.setFrameAutosaveName("Image Generator")
+        windowRef.makeKeyAndOrderFront(nil)
+    }
 }
 
 struct AdminGroup: View {
