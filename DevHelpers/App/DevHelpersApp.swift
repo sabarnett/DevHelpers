@@ -22,12 +22,6 @@ struct DevHelpersApp: App {
             }
         }.menuBarExtraStyle(.menu)
         
-        Window("LoremIpsum", id: "loremipsum") {
-            LoremIpsumView()
-        }
-        .defaultSize(width: Constants.loremIpsumWindowSize.width, height: Constants.loremIpsumWindowSize.height)
-            .defaultPosition(.center)
-
         Window("About", id: "about") {
             AboutDevToolsView()
                 .frame(minWidth: Constants.aboutWindowSize.width, maxWidth: Constants.aboutWindowSize.width + 200,
@@ -47,31 +41,52 @@ struct DevHelpersApp: App {
 }
 
 struct ToolsGroup: View {
-  
-  @Environment(\.openWindow) private var openWindow
+    
+    @Environment(\.openWindow) private var openWindow
     @StateObject private var appState: ColorWindowState = ColorWindowState.shared
-
-
-  var body: some View {
-    Group {
-      Divider()
-        Button("Lorem Ipsum") {
-            openWindow(id: "loremipsum")
-            NSApp.activate(ignoringOtherApps: true)
-        }
-
-        Button("Color Wheel") {
-            self.appState.openColorPicker()
-            NSApp.activate(ignoringOtherApps: true)
-        }
-
-        Button("Image Generator") {
-            openImageGenerator()
-            NSApp.activate(ignoringOtherApps: true)
+    
+    
+    var body: some View {
+        Group {
+            Divider()
+            Button("Lorem Ipsum") {
+                openLoremIpsum()
+                NSApp.activate(ignoringOtherApps: true)
+            }
+            
+            Button("Color Wheel") {
+                self.appState.openColorPicker()
+                NSApp.activate(ignoringOtherApps: true)
+            }
+            
+            Button("Image Generator") {
+                openImageGenerator()
+                NSApp.activate(ignoringOtherApps: true)
+            }
         }
     }
-  }
     
+    func openLoremIpsum() {
+        let windowRef:NSWindow = NSWindow(
+            contentRect: NSRect(x: 50,
+                                y: 50,
+                                width: Constants.loremIpsumWindowSize.width,
+                                height: Constants.loremIpsumWindowSize.height),
+            styleMask: [.titled,
+                        .closable,
+                        .miniaturizable,
+                        .fullSizeContentView],        // .resizable
+            backing: .buffered,
+            defer: false)
+        
+        windowRef.contentView = NSHostingView(rootView: LoremIpsumView(myWindow: windowRef))
+        windowRef.center()
+        windowRef.setFrameAutosaveName("Lorem Ipsum")
+        windowRef.standardWindowButton(.zoomButton)?.isHidden = true
+        windowRef.standardWindowButton(.miniaturizeButton)?.isHidden = true
+        windowRef.makeKeyAndOrderFront(nil)
+    }
+
     func openImageGenerator() {
         let windowRef:NSWindow = NSWindow(
             contentRect: NSRect(x: 50,
@@ -79,48 +94,50 @@ struct ToolsGroup: View {
                                 width: Constants.imageGenWindowSize.width,
                                 height: Constants.imageGenWindowSize.height),
             styleMask: [.titled,
-                .closable,
-                .miniaturizable,
-                .fullSizeContentView],        // .resizable
+                        .closable,
+                        .miniaturizable,
+                        .fullSizeContentView],        // .resizable
             backing: .buffered,
             defer: false)
         
         windowRef.contentView = NSHostingView(rootView: ImageGenerator(myWindow: windowRef))
         windowRef.center()
         windowRef.setFrameAutosaveName("Image Generator")
+        windowRef.standardWindowButton(.zoomButton)?.isHidden = true
+        windowRef.standardWindowButton(.miniaturizeButton)?.isHidden = true
         windowRef.makeKeyAndOrderFront(nil)
     }
 }
 
 struct AdminGroup: View {
-  
-  @Environment(\.openWindow) private var openWindow
-
-  var body: some View {
-    Group {
-        Button("About DevTools") {
-            openWindow(id: "about")
-            NSApp.activate(ignoringOtherApps: true)
+    
+    @Environment(\.openWindow) private var openWindow
+    
+    var body: some View {
+        Group {
+            Button("About DevTools") {
+                openWindow(id: "about")
+                NSApp.activate(ignoringOtherApps: true)
+            }
+            Button("Settings") {
+                openWindow(id: "settings")
+                NSApp.activate(ignoringOtherApps: true)
+            }
+            
+            Divider()
         }
-        Button("Settings") {
-            openWindow(id: "settings")
-            NSApp.activate(ignoringOtherApps: true)
-        }
-
-        Divider()
     }
-  }
 }
 
 struct QuitGroup: View {
-
-  var body: some View {
-    Group {
-        Divider()
-        
-        Button("Quit") {
-            NSApplication.shared.terminate(nil)
-        }.keyboardShortcut("q")
+    
+    var body: some View {
+        Group {
+            Divider()
+            
+            Button("Quit") {
+                NSApplication.shared.terminate(nil)
+            }.keyboardShortcut("q")
+        }
     }
-  }
 }

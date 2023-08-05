@@ -10,14 +10,11 @@ import SwiftUI
 
 struct LoremIpsumView: View {
     
+    let myWindow:NSWindow?
     @StateObject var vm: LoremIpsumModel = LoremIpsumModel()
     
     var body: some View {
         VStack(alignment: .leading) {
-            HostingWindowFinder { window in
-                window?.standardWindowButton(.zoomButton)?.isHidden = true
-                window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
-            }.frame(height: 0)
             HStack(alignment: .top, spacing: 30) {
                 VStack(alignment: .leading) {
                     Text("Generate what?")
@@ -51,14 +48,19 @@ struct LoremIpsumView: View {
             }
             Spacer()
             TextEditor(text: $vm.generatedText)
+            HStack {
+                Spacer()
+                Button(
+                    action: { myWindow?.close()},
+                    label: { Text("Close")})
+            }
         }.padding(20)
     }
-
 }
 
 struct LoremIpsumView_Previews: PreviewProvider {
     static var previews: some View {
-        LoremIpsumView()
+        LoremIpsumView(myWindow: nil)
             .frame(width: 400, height: 350)
     }
 }
